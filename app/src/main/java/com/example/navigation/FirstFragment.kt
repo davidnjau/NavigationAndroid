@@ -33,6 +33,8 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
 
+        binding.toolbar.title = "First Fragment"
+
         return binding.root
     }
 
