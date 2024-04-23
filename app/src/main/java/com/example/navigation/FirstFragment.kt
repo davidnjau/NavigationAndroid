@@ -20,7 +20,6 @@ class FirstFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -35,6 +34,22 @@ class FirstFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.inflateMenu(R.menu.main_menu)
+
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.secondFragment -> {
+                    findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
 
